@@ -19,7 +19,7 @@ public abstract class BaseSeleniumTests {
 
     @Before
     public void setUp() {
-        /*String driverFile = findFile();
+        String driverFile = findFile();
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         ChromeDriverService service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(new File(driverFile))
@@ -34,10 +34,10 @@ public abstract class BaseSeleniumTests {
         options.addArguments("--disable-gpu"); // applicable to windows os only
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         options.merge(capabilities);
-        this.driver = new ChromeDriver(service, options);*/
+        this.driver = new ChromeDriver(service, options);
     	
     	try {
-    		this.driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),new FirefoxOptions());
+    		this.driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),options);
     		}
     		catch (MalformedURLException e) {
     		    System.out.println("incorrect url");
