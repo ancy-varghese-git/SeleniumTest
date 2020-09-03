@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class BaseSeleniumTests {
-	private static final String CHROMEDRIVER_EXE = "chromedriver.exe";
+	private static final String CHROMEDRIVER_EXE = "chromedriver";
 
     protected WebDriver driver;
 
