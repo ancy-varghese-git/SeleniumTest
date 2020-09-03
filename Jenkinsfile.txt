@@ -1,0 +1,38 @@
+node{
+    
+    stage('git checkout'){
+
+        git credentialsId: 'ancy-varghese-git', url: 'https://github.com/ancy-varghese-git/MySpringBoot.git'
+
+    }
+    
+	stage('Copy YAML on AKS'){
+        //def copyYAMLCMD = ' scp -r /var/jenkins_home/workspace/test/*.yaml ancy_194237@13.93.120.161:/home/ancy_194237'
+        sshagent(['ancy_194237']) {
+	        sh '''ssh -o StrictHostKeyChecking=no ancy_194237@13.93.120.161 
+	        scp -r /var/jenkins_home/workspace/test/myspringboot.yaml ancy_194237@13.93.120.161:/home/ancy_194237'''
+        }
+    } 
+    
+    stage('Deploy on AKS -path'){
+        def kubeCMD = 'kubectl apply -f *.yaml --record'
+        sshagent(['ancy_194237']) {
+	        sh "ssh -o StrictHostKeyChecking=no ancy_194237@13.93.120.161 pwd"
+        }
+    } 
+    
+    stage('Deploy on AKS -kubectl apply'){
+        def kubeCMD = 'kubectl apply -f myspringboot.yaml --record'
+        sshagent(['ancy_194237']) {
+	        sh "ssh -o StrictHostKeyChecking=no ancy_194237@13.93.120.161 ${kubeCMD}"
+        }
+        sleep(5)
+    } 
+    
+    stage('Deploy on AKS - Kubectl get'){
+        def kubeCMD = 'kubectl get all -n ns-194237'
+        sshagent(['ancy_194237']) {
+	        sh "ssh -o StrictHostKeyChecking=no ancy_194237@13.93.120.161 ${kubeCMD}"
+        }
+    } 
+}
