@@ -23,5 +23,10 @@ public class GoogleSearchPageTraditionalSeleniumTests extends BaseSeleniumTests 
         assertNotNull(element);
     }
 
-
+    @Test
+    public void getSumPage() {
+        this.driver.get("https://www.google.com");
+        WebElement element = this.driver.findElement(By.name("q"));
+        assertNotNull(element);
+    }
 }
