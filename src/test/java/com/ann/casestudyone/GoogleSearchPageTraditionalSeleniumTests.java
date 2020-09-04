@@ -22,25 +22,25 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTests {
 
-	WebDriver firefoxdriver;
+	WebDriver driver;
 	
 	@Test
 	public void getGoogleSearchPage() {
 		 DesiredCapabilities capabilities = new DesiredCapabilities();
-	       capabilities.setBrowserName("firefox");
+	       capabilities.setBrowserName("chrome");
 	       try {
-			firefoxdriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), capabilities);
-			firefoxdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			firefoxdriver.get("https://www.google.com");
+			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), capabilities);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
-			assertNotNull(this.firefoxdriver.getTitle());
+			assertNotNull(this.driver.getTitle());
 		
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} finally {
-			firefoxdriver.quit();
+			driver.quit();
 		}
 	   	
 		
