@@ -20,33 +20,27 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTests {
 
-	WebDriver chromedriver;
 	WebDriver firefoxdriver;
 	
 	public GoogleSearchPageTraditionalSeleniumTests() throws MalformedURLException {
-	chromedriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),new ChromeOptions());
+	//chromedriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),new ChromeOptions());
 	firefoxdriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
 	}
 	
 	@Test
 	public void getGoogleSearchPage() {
 		
-		this.chromedriver.get("https://www.google.com");
-		WebElement element = this.chromedriver.findElement(By.name("q"));
+		this.firefoxdriver.get("https://www.google.com");
+		WebElement element = this.firefoxdriver.findElement(By.name("q"));
 		assertNotNull(element);
 
 	}
 
 	@Test
 	public void getGoogleTitle() {
-		this.chromedriver.get("https://www.google.com");
-		assertEquals("Title mismatch", "Google", chromedriver.getTitle());
+		this.firefoxdriver.get("https://www.google.com");
+		assertEquals("Title mismatch", "Google", firefoxdriver.getTitle());
 
 	}
-
-	@Test
-	public void getGoogleFirefox() {
-			firefoxdriver.get("http://www.google.com");
-		
-	} 
+ 
 }
