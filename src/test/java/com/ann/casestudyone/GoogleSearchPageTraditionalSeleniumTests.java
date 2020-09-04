@@ -28,7 +28,7 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 			WebDriver driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
 			driver.get("https://www.google.com");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			WebElement element = this.driver.findElement(By.name("q"));
+			WebElement element = driver.findElement(By.name("q"));
 			assertNotNull(element);
 			//driver.quit();
 			
