@@ -31,13 +31,18 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 	       try {
 			firefoxdriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), capabilities);
 			firefoxdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			this.firefoxdriver.get("https://www.google.com");
+			firefoxdriver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
 			assertNotNull(this.firefoxdriver.getTitle());
+			Thread.sleep(1000);
+			
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}finally {
+			firefoxdriver.quit();
 		}
 	   	
 		
