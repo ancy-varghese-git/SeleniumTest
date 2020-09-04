@@ -35,13 +35,11 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
 			assertNotNull(this.firefoxdriver.getTitle());
-			Thread.sleep(1000);
+		
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}finally {
+		} finally {
 			firefoxdriver.quit();
 		}
 	   	
