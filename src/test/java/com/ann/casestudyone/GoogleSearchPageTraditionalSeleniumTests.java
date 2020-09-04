@@ -35,12 +35,12 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 	        options.addArguments("start-maximized"); // open Browser in maximized mode
 	        options.addArguments("disable-infobars"); // disabling infobars
 	        options.addArguments("--disable-extensions"); // disabling extensions
-	        options.addArguments("--disable-gpu"); // applicable to windows os only
+	        //options.addArguments("--disable-gpu"); // applicable to windows os only
 	        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 	        options.merge(capabilities);
 	       try {
 			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), options);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
