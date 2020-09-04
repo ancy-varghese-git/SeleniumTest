@@ -26,11 +26,10 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 	public void getGoogleSearchPage() {
 		    try {
 			WebDriver driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
-			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("https://www.google.com");
-			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
-			//assertNotNull(element);
-			//assertNotNull(driver.getTitle());
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			WebElement element = this.driver.findElement(By.name("q"));
+			assertNotNull(element);
 			//driver.quit();
 			
 		} catch (MalformedURLException e) {
