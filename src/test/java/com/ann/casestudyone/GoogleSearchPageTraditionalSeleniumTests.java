@@ -17,9 +17,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTests {
+public class GoogleSearchPageTraditionalSeleniumTests extends BaseSeleniumTests {
 
-	/*@Test
+	@Test
 	public void getSearchPage() {
 		this.driver.get("https://www.google.com");
 		WebElement element = this.driver.findElement(By.name("q"));
@@ -33,12 +33,12 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 		assertEquals("Title mismatch", "Google", driver.getTitle());
 
 	}
-*/
+
 	@Test
 	public void getGoogleFirefox() {
 		try {
-			WebDriver driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
-			driver.get("http://www.google.com");
+			WebDriver firefoxdriver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
+			firefoxdriver.get("http://www.google.com");
 		} catch (MalformedURLException e) {
 			System.out.println("incorrect url");
 		}

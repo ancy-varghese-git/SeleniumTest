@@ -19,6 +19,8 @@ public abstract class BaseSeleniumTests {
 
     @Before
     public void setUp() {
+    	try {
+    		
        /* String driverFile = findFile();
         ChromeDriverService service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(new File(driverFile))
@@ -37,8 +39,7 @@ public abstract class BaseSeleniumTests {
         options.merge(capabilities);
       //  this.driver = new ChromeDriver(service, options);
     	
-    	try {
-    		this.driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),options);
+    	driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),options);
     		}
     		catch (MalformedURLException e) {
     		    System.out.println("incorrect url");
