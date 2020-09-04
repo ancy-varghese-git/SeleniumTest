@@ -20,28 +20,33 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTests {
+public class GoogleSearchPageTraditionalSeleniumTests {// extends BaseSeleniumTests {
 
 	@Test
 	public void getGoogleSearchPage() {
-		    try {
+		try {
 			WebDriver driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
 			driver.get("https://www.google.com");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			WebElement element = driver.findElement(By.name("q"));
 			assertNotNull(element);
-			//driver.quit();
-			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
-	public void getGoogleTitle() {
-	//	this.firefoxdriver.get("https://www.google.com");
-		//assertEquals("Title mismatch", "Google", firefoxdriver.getTitle());
-
+	public void getSearchTitle() {
+		try {
+			WebDriver driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
+			driver.get("https://www.google.com");
+			System.out.println("this.driver.getTitle() " + driver.getTitle());
+			assertEquals("Google", driver.getTitle());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
- 
+	
+	
+
 }
