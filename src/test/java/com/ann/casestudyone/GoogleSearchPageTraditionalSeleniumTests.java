@@ -30,7 +30,7 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 			driver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
-			//assertNotNull(this.driver.getTitle());
+			assertNotNull(driver.getTitle());
 			//driver.quit();
 			
 		} catch (MalformedURLException e) {
