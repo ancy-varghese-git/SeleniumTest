@@ -28,33 +28,19 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 	public void getGoogleSearchPage() {
 		 DesiredCapabilities capabilities = new DesiredCapabilities();
 	       capabilities.setBrowserName("chrome");
-	       ChromeOptions options = new ChromeOptions();
-	        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
-	        options.addArguments("--headless");
-	        options.setExperimentalOption("useAutomationExtension", false);
-	        options.addArguments("start-maximized"); // open Browser in maximized mode
-	        options.addArguments("disable-infobars"); // disabling infobars
-	        options.addArguments("--disable-extensions"); // disabling extensions
-	        //options.addArguments("--disable-gpu"); // applicable to windows os only
-	        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-	        options.merge(capabilities);
+	 
 	       try {
-			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), capabilities);
 			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
 			//assertNotNull(element);
 			//assertNotNull(this.driver.getTitle());
-		
+			driver.quit();
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		} finally {
-			driver.quit();
 		}
-	   	
-		
-
 	}
 
 	@Test
