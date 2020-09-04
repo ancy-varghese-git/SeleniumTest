@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GoogleSearchPageTraditionalSeleniumTests extends BaseSeleniumTests {
+public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTests {
 
 	/*@Test
 	public void getSearchPage() {
