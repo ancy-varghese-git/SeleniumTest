@@ -26,11 +26,8 @@ public class GoogleSearchPageTraditionalSeleniumTests {//extends BaseSeleniumTes
 	
 	@Test
 	public void getGoogleSearchPage() {
-		 DesiredCapabilities capabilities = new DesiredCapabilities();
-	       capabilities.setBrowserName("chrome");
-	 
-	       try {
-			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), capabilities);
+		    try {
+			driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"), new FirefoxOptions());
 			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("https://www.google.com");
 			//WebElement element = this.firefoxdriver.findElement(By.name("q"));
