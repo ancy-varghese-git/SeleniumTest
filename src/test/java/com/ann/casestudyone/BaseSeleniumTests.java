@@ -42,7 +42,7 @@ public abstract class BaseSeleniumTests {
       //  this.driver = new ChromeDriver(service, options);
     	
         		
-    	driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),options);
+    	driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),new ChromeOptions());
     		}
     		catch (MalformedURLException e) {
     		    System.out.println("incorrect url");
