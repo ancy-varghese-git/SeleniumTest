@@ -6,6 +6,7 @@ import java.net.URL;
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -26,6 +27,7 @@ public abstract class BaseSeleniumTests {
                 .usingDriverExecutable(new File(driverFile))
                 .build();*/
     	 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+    	 capabilities.setPlatform(Platform.SIERRA);
          
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
@@ -39,6 +41,7 @@ public abstract class BaseSeleniumTests {
         options.merge(capabilities);
       //  this.driver = new ChromeDriver(service, options);
     	
+        		
     	driver = new RemoteWebDriver(new URL("http://40.113.221.175:4444/wd/hub"),options);
     		}
     		catch (MalformedURLException e) {
